@@ -4,7 +4,8 @@ module.exports = {
         if (req.isAuthenticated()){
             res.redirect('/');
         } else {
-            res.render('login', {title: 'Login'});
+            var userName = req.user ? req.user.displayname : "Not logged in";
+            res.render('login', {title: 'Login', user: userName});
         }
     },
 

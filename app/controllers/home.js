@@ -1,5 +1,7 @@
 exports.index = function(req, res){
+    var userName = req.user ? req.user.displayname : "Not logged in";
     res.render('index', {
-      title: 'Local Drones: Home'
+      title: 'Home',
+      user: userName
     });
 };

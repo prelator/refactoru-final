@@ -19,7 +19,8 @@ module.exports = function(app, config) {
     app.use(passport.session());
     app.use(app.router);
     app.use(function(req, res) {
-      res.status(404).render('404', { title: '404' });
+      var userName = req.user ? req.user.displayname : "Not logged in";
+      res.status(404).render('404', { title: 'Not Found', user: userName });
     });
   });
 };

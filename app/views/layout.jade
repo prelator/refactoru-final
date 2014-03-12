@@ -3,17 +3,22 @@ html(lang='en')
   head
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width')
-    title= title
-    block css
+    title LocalDrones: #{title}    
+    block maincss
       link(rel="stylesheet", type="text/css", href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css")
       link(rel="stylesheet", type="text/css", href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css")
+      link(rel="stylesheet", type="text/css", href="/css/datepicker.css")
       link(rel='stylesheet', type="text/css", href='/css/style.css')
-    block js
+    block extracss
+    block mainscripts
       script(src="http://localhost:35729/livereload.js")
       script(src="/js/jquery-2.1.0.min.js")
       script(src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js")
       script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js")
-      script(src="/js/main.js")   
+      script(src="/js/bootstrap-datepicker.js")
+      script(src="/js/main.js")
+    block extrascripts   
+  
   body
     block navbar
       nav.navbar.navbar-fixed-top(role="navigation")
@@ -33,26 +38,28 @@ html(lang='en')
                 a(href="/directory") Directory
               li 
                 a(href="/about") About This Site
+              
             ul.nav.navbar-nav.navbar-right
               li.dropdown
                 a.dropdown-toggle(href="#", data-toggle="dropdown") 
                   i.glyphicon.glyphicon-user
-                  |  User  
+                  |  #{user}  
                   i.glyphicon.glyphicon-chevron-down
                 ul.dropdown-menu
-                  li
-                    a(href="/login") Login / Sign-up
-                  li
-                    a(href="/profile") Profile
-                  li
-                  li.divider
-                  li
-                    a(href="/my-projects") My drone projects
-                  li
-                    a(href="/new-project") New drone project
-                  li.divider
-                  li
-                    a(href="/logout") Logout
+                  if user === "Not logged in"
+                    li
+                      a(href="/login") Login / Sign-up
+                  if user !== "Not logged in"
+                    li
+                      a(href="/edit-profile") Edit Profile
+                    li.divider
+                    li
+                      a(href="/my-projects") My drone projects
+                    li
+                      a(href="/new-project") New drone project
+                    li.divider
+                    li
+                      a(href="/logout") Logout
                         
     .main-content
       header.masthead

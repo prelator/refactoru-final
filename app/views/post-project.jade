@@ -1,0 +1,32 @@
+extends layout
+
+block scripts
+
+
+block content
+  .container
+    h2= title
+    p Fill out the form below to post a new project for which you would like to hire a drone. You will need to provide some basic information on the date and time of the shoot, the type of photography needed, the location, and type of project.
+
+    form#project-form(role="form").col-sm-6
+      .form-group
+        label Type of aerial photography project:
+        select.form-control
+          option Real estate photography
+          option Movie shoot
+          option Commercial / advertisement
+          option Music video
+          option Event photography
+          option News reporting
+          option Other
+      .form-group
+        label Type of photography desired:
+        select.form-control
+          option Still photography
+          option Video
+          option Both
+      .form-group
+        label Project description
+        textarea.form-control(rows="5", placeholder="Enter project description")
+      button.btn.btn-info(type="submit") Submit
+

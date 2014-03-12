@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  .container
+    h2 Edit Profile: #{user}
+    h3 Current user information:
+    if userInfo.picture !== "none"
+      img.img-circle(src="#{userInfo.picture}", width="200")
+    h4 First Name: #{userInfo.givenname}
+    h4 Last Name: #{userInfo.familyname}
+    h4 Gender: #{userInfo.gender}
+    h4 Provider: #{userInfo.provider}
