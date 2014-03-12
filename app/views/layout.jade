@@ -1,0 +1,71 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width')
+    title= title
+    block css
+      link(rel="stylesheet", type="text/css", href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css")
+      link(rel="stylesheet", type="text/css", href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css")
+      link(rel='stylesheet', type="text/css", href='/css/style.css')
+    block js
+      script(src="http://localhost:35729/livereload.js")
+      script(src="/js/jquery-2.1.0.min.js")
+      script(src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js")
+      script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js")
+      script(src="/js/main.js")   
+  body
+    block navbar
+      nav.navbar.navbar-fixed-top(role="navigation")
+        .container-fluid
+          navbar-header
+            a.navbar-toggle(data-toggle="collapse", data-target="#main-navbar-collapse")
+                span.sr-only Toggle navigation
+                span.glyphicon.glyphicon-chevron-down
+            a.navbar-brand(href="/") Local Drones
+          .collapse.navbar-collapse(id="main-navbar-collapse")
+            ul.nav.navbar-nav
+              li
+                a(href="/") Home
+              li
+                a(href="/projects") Drone Projects
+              li
+                a(href="/directory") Directory
+              li 
+                a(href="/about") About This Site
+            ul.nav.navbar-nav.navbar-right
+              li.dropdown
+                a.dropdown-toggle(href="#", data-toggle="dropdown") 
+                  i.glyphicon.glyphicon-user
+                  |  User  
+                  i.glyphicon.glyphicon-chevron-down
+                ul.dropdown-menu
+                  li
+                    a(href="/login") Login / Sign-up
+                  li
+                    a(href="/profile") Profile
+                  li
+                  li.divider
+                  li
+                    a(href="/my-projects") My drone projects
+                  li
+                    a(href="/new-project") New drone project
+                  li.divider
+                  li
+                    a(href="/logout") Logout
+                        
+    .main-content
+      header.masthead
+        .container
+          h1 LocalDrones.net <small>Hire a local drone pilot today!</small>
+    block content
+
+    block footer
+      footer
+        .container
+          p.pull-right
+              a(href='#') Back to top
+          p
+              | © LocalDrones | 
+              a(href='#') Privacy | 
+              a(href='#') Terms
