@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  .container
+    h1= title
+    
+    .col-sm-6
+      h3 Posted projects
+      p You have posted the following drone photography projects:
+      each project in userProjects
+        .panel.panel-info
+          .panel-heading
+            h3.panel-title #{project.timeStamp}
+          .panel-body
+            button.close.btn-delete(type="button", aria-hidden="true") &times;
+            h4 #{project.description}
+    .col-sm-6
+      h3 Bid projects
+      p You have bid on the following drone photography projects:

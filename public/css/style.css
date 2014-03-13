@@ -237,3 +237,16 @@ footer {
 .btn {
   margin: 10px;
 }
+
+#end-date {
+  display: none;
+}
+
+.close {
+  color: red;
+}
+
+.white {
+  background-color: white;
+  border-radius: 10px;
+}

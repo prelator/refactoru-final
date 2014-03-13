@@ -4,29 +4,59 @@ block scripts
 
 
 block content
-  .container
+  .container.white
     h2= title
-    p Fill out the form below to post a new project for which you would like to hire a drone. You will need to provide some basic information on the date and time of the shoot, the type of photography needed, the location, and type of project.
+    p Fill out the form below to post a new project for which you would like to hire a drone. You will need to provide some basic information on the date and time of the photo/video shoot, the type of photography needed, the location, and type of project.
 
-    form#project-form(role="form").col-sm-6
+    form#project-form(role="form", action="/post/new-project", method="post").col-sm-6
+      .form-group.row
+        div.col-xs-8
+          label.control-label Date of project/photo shoot:
+          div.input-group.date#start-date(data-date="01-01-2014", data-date-format="mm-dd-yyyy")
+            input.form-control#checkin(type="text", readonly="", value="01-01-2014", name="startDate")
+            span.input-group-addon
+              i.glyphicon.glyphicon-calendar
       .form-group
-        label Type of aerial photography project:
-        select.form-control
+        .checkbox
+          label.control-label Multi-day project?
+          input#multi-day(type="checkbox", name="multiDay") 
+      .form-group.row#end-date
+        div.col-xs-8
+          label.control-label End date:
+          div.input-group.date(data-date="01-01-2014", data-date-format="mm-dd-yyyy")
+            input.form-control#checkout(type="text", readonly="", value="01-01-2014", name="endDate")
+            span.input-group-addon
+              i.glyphicon.glyphicon-calendar      
+      .form-group
+        label.control-label Project start time (format: 12:30 PM):
+        input.form-control(type="text", placeholder="Enter time", name="time", required)
+      .form-group
+        label.control-label Project location (enter address, GPS coordinates, or a zip code if you do not want the exact address to be public):
+        input.form-control(type="text", placeholder="Enter project location", name="location", required)
+      .form-group
+        label.control-label Type of aerial photography project:
+        select.form-control(name="projectType")
           option Real estate photography
+          option Event photography
           option Movie shoot
           option Commercial / advertisement
           option Music video
-          option Event photography
+          option Infrastructure inspection
           option News reporting
           option Other
       .form-group
-        label Type of photography desired:
-        select.form-control
+        label.control-label Type of photography desired:
+        select.form-control(name="photographyType")
           option Still photography
           option Video
           option Both
       .form-group
-        label Project description
-        textarea.form-control(rows="5", placeholder="Enter project description")
+        label.control-label Photo/video editing services required?
+        select.form-control(name="editing")
+          option Yes
+          option No
+      .form-group
+        label.control-label Project description
+        textarea.form-control(rows="5", placeholder="Enter project description", name="description", required)
       button.btn.btn-info(type="submit") Submit
 

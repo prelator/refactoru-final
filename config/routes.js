@@ -43,7 +43,8 @@ module.exports = function(app){
 
   //Post new project
   app.get('/new-project', authController.ensureAuthenticated, projectController.newProject);
+  app.post('/post/new-project', authController.ensureAuthenticated, projectController.create);
 
-
-
+  //My projects
+  app.get('/my-projects', authController.ensureAuthenticated, projectController.myProjects);
 };
