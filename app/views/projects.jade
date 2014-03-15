@@ -1,5 +1,9 @@
 extends layout
 
+block extra-scripts
+  script(type="text/javascript")
+    var allProjects = !{JSON.stringify(projectList)}
+
 block content
   .container
     h2= title

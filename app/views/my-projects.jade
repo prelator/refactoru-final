@@ -8,12 +8,16 @@ block content
       h3 Posted projects
       p You have posted the following drone photography projects:
       each project in userProjects
-        .panel.panel-info
+        .panel.panel-info(id="#{project._id}")
           .panel-heading
-            h3.panel-title #{project.timeStamp}
+            h3.panel-title #{project.title}
           .panel-body
             button.close.btn-delete(type="button", aria-hidden="true") &times;
-            h4 #{project.description}
+            h5 Project posted: <small>#{project.timeStamp}</small>
+            h5 Project date: <small>#{project.startDate}</small>
+            h5 Project times: <small>#{project.startTime} to #{project.endTime}</small>
+            h5 Project location: <small>#{project.location}</small>
+            h5 Description: <small>#{project.description}</small>
     .col-sm-6
       h3 Bid projects
       p You have bid on the following drone photography projects:

@@ -23,6 +23,13 @@ module.exports = {
             return next();
         }
         res.redirect('/login');   
+    },
+
+    ensureAuthAJAX: function (req, res, next) {
+      if(req.isAuthenticated()) {
+        return next();
+      }
+      res.send(401);
     }
 
 };

@@ -1,14 +1,14 @@
 extends layout
 
-block scripts
-
-
 block content
   .container.white
-    h2= title
+    h2 New Drone Photography Project
     p Fill out the form below to post a new project for which you would like to hire a drone. You will need to provide some basic information on the date and time of the photo/video shoot, the type of photography needed, the location, and type of project.
 
     form#project-form(role="form", action="/post/new-project", method="post").col-sm-6
+      .form-group
+        label Project title
+        input.form-control(type="text", placeholder="Enter name of project", name="title", required)
       .form-group.row
         div.col-xs-8
           label.control-label Date of project/photo shoot:
@@ -16,6 +16,14 @@ block content
             input.form-control#checkin(type="text", readonly="", value="01-01-2014", name="startDate")
             span.input-group-addon
               i.glyphicon.glyphicon-calendar
+      .form-group.row
+        label.control-label Project times (format: "h:mm AM/PM" or "hh:mm AM/PM"):
+        .form-group.col-xs-6
+          label.control-label Start time:
+          input.form-control#start-time(type="text", placeholder="12:00 PM", name="startTime", required)
+        .form-group.col-xs-6
+          label.control-label End time:
+          input.form-control#end-time(type="text", placeholder="12:00 PM", name="endTime", required)
       .form-group
         .checkbox
           label.control-label Multi-day project?
@@ -27,9 +35,6 @@ block content
             input.form-control#checkout(type="text", readonly="", value="01-01-2014", name="endDate")
             span.input-group-addon
               i.glyphicon.glyphicon-calendar      
-      .form-group
-        label.control-label Project start time (format: 12:30 PM):
-        input.form-control(type="text", placeholder="Enter time", name="time", required)
       .form-group
         label.control-label Project location (enter address, GPS coordinates, or a zip code if you do not want the exact address to be public):
         input.form-control(type="text", placeholder="Enter project location", name="location", required)
@@ -59,4 +64,5 @@ block content
         label.control-label Project description
         textarea.form-control(rows="5", placeholder="Enter project description", name="description", required)
       button.btn.btn-info(type="submit") Submit
+      button.btn.btn-danger(type="reset") Reset
 

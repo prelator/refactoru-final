@@ -47,4 +47,10 @@ module.exports = function(app){
 
   //My projects
   app.get('/my-projects', authController.ensureAuthenticated, projectController.myProjects);
+
+  //Test geocode
+  app.get('/test-geocode', projectController.testGeocode);
+
+  //Delete project
+  app.delete('/delete/:ID', authController.ensureAuthAJAX, projectController.matchUser, projectController.deleteProject);
 };
