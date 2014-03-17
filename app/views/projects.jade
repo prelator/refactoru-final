@@ -3,7 +3,21 @@ extends layout
 block extra-scripts
   script(type="text/javascript")
     var allProjects = !{JSON.stringify(projectList)}
-
+  script(type="text/javascript", src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABpRvKwxjVMyLI6B8flauiRY6P8On7GO4&sensor=false")
+  script(type="text/javascript", src="/js/map.js")
 block content
   .container
-    h2= title
+    h2 Drone Photography Projects
+  .container
+    .col-sm-12
+      .map-canvas#map-canvas
+  .container(ng-controller="ProjectListCtrl")          
+    section.col-sm-12      
+      h3 Available Projects
+      input.form-control(ng-model="search", placeholder="Search")
+      .list-group
+        a.list-group-item(ng-repeat="project in projects | orderBy:orderProp | filter:search", href="/projects/{{project._id}}")
+          h4.list-group-item-heading {{project.title}} <small>{{project.displayName}}</small>
+          p.list-group-item-text {{project.startDate}} {{project.startTime}} - {{project.endTime}}
+          p.list-group-item-text {{project.location}}
+          p.list-group-item-text {{project.description}}

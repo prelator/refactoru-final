@@ -10,9 +10,8 @@ module.exports = {
     var userName = req.user ? req.user.displayname : "Not logged in";
     ProjectModel.find({}, function (err, projects) {
       if (err) {console.log(err);}
-      console.log(projects);
       res.render('projects', {
-      title: 'View Drone Projects',
+      title: 'Drone Projects',
       user: userName,
       projectList: projects
       });
@@ -31,11 +30,12 @@ module.exports = {
 
   create: function (req, res) {
     var currentDate = new Date();
+    var userDetails = req.user;
     gm.geocode(req.body.location, function (err, result) {    
       if (err) {console.log(err);}
       var newProject = new ProjectModel({
         userid: req.user.userid,
-        displayName: req.user.displayName,
+        displayName: userDetails.displayname,
         timeStamp: currentDate,
         title: req.body.title,
         startDate: req.body.startDate,
@@ -51,7 +51,6 @@ module.exports = {
         editing: req.body.editing,
         description: req.body.description
       });
-      console.log(newProject);
       newProject.save(function (err) {
         if (err) {console.log(err);}
       });
@@ -64,7 +63,6 @@ module.exports = {
     var userInfo = req.user;
     ProjectModel.find({userid: userInfo.userid}, function (err, docs) {
       if (err) {console.log(err);}
-      console.dir(docs);
       res.render('my-projects', {
       title: 'My Projects',
       user: userName,
