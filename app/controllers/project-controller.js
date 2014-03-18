@@ -30,30 +30,33 @@ module.exports = {
 
   create: function (req, res) {
     var currentDate = new Date();
-    var userDetails = req.user;
     gm.geocode(req.body.location, function (err, result) {    
-      if (err) {console.log(err);}
-      var newProject = new ProjectModel({
-        userid: req.user.userid,
-        displayName: userDetails.displayname,
-        timeStamp: currentDate,
-        title: req.body.title,
-        startDate: req.body.startDate,
-        endDate: req.body.endDate,
-        multiDay: req.body.multiDay ? true : false,
-        startTime: req.body.startTime,
-        endTime: req.body.endTime,
-        locationEntered: req.body.location,
-        location: result.results[0].formatted_address || "none",
-        coordinates: result.results[0].geometry.location || "none",
-        projectType: req.body.projectType,
-        photographyType: req.body.photographyType,
-        editing: req.body.editing,
-        description: req.body.description
-      });
-      newProject.save(function (err) {
-        if (err) {console.log(err);}
-      });
+      if (err) {
+        console.log(err);
+      }
+      if (result) {
+        var newProject = new ProjectModel({
+          userid: req.user.userid,
+          displayName: req.user.displayname,
+          timeStamp: currentDate,
+          title: req.body.title,
+          startDate: req.body.startDate,
+          endDate: req.body.endDate,
+          multiDay: req.body.multiDay ? true : false,
+          startTime: req.body.startTime,
+          endTime: req.body.endTime,
+          locationEntered: req.body.location,
+          location: result.results[0].formatted_address,
+          coordinates: result.results[0].geometry.location,
+          projectType: req.body.projectType,
+          photographyType: req.body.photographyType,
+          editing: req.body.editing,
+          description: req.body.description
+        });
+        newProject.save(function (err) {
+          if (err) {console.log(err);}
+        }); 
+    }
       res.redirect("/my-projects");
     }, 'false');
   },

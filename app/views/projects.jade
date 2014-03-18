@@ -3,7 +3,6 @@ extends layout
 block extra-scripts
   script(type="text/javascript")
     var allProjects = !{JSON.stringify(projectList)}
-  script(type="text/javascript", src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABpRvKwxjVMyLI6B8flauiRY6P8On7GO4&sensor=false")
   script(type="text/javascript", src="/js/map.js")
 block content
   .container

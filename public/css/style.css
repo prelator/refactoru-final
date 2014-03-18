@@ -255,10 +255,16 @@ section {
   margin: 5px 0;
 }
 
+
 html { height: 100% } 
 
 body { height: 100% }
 
 .map-canvas {
   height: 400px;
+}
+
+.head-img {
+  float: left;
+  margin-right: 10px;
 }

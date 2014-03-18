@@ -1,4 +1,5 @@
 //========= Globals ==================
+var geocoder;
 
 //Time validation function
 var validateTime = function (str) {
@@ -6,11 +7,14 @@ var validateTime = function (str) {
   return str.match(timeMatch) ? true : false;
 };
 
+
+//======== Document ready ============
 $(document).ready(function() {
   
-//========== New project form =================
 
-  ////////// Event handlers ///////////
+
+
+  //========== New project form =================
 
   //Home page carousel
   $('.carousel').carousel({
@@ -39,6 +43,18 @@ $(document).ready(function() {
       event.preventDefault();
       alert('All times must match format: "h:mm AM/PM" or "hh:mm AM/PM"');
     }
+  });
+
+  $('#location-field').change(function() {
+    geocoder = new google.maps.Geocoder();
+    geocoder.geocode( { 'address': $(this).val()}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        alert("Location found: " + results[0].formatted_address + ". If this is not correct, enter a more specific location.");
+      } else {
+        alert("No matching location found. Please enter a more specific location.");
+      }
+    });
+
   });
 
 //======== My projects page =====================

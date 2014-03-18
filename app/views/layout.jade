@@ -17,6 +17,7 @@ html(lang='en', ng-app="droneApp")
       script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js")
       script(src="/js/bootstrap-datepicker.js")
       script(src="/js/controllers.js")
+      script(type="text/javascript", src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABpRvKwxjVMyLI6B8flauiRY6P8On7GO4&sensor=false")
       script(src="/js/main.js")
     block extra-scripts   
   
@@ -37,6 +38,8 @@ html(lang='en', ng-app="droneApp")
                 a(href="/projects") Drone Projects
               li
                 a(href="/directory") Directory
+              li
+                a(href="/legal") Legal Info
               li 
                 a(href="/about") About This Site
               
@@ -65,7 +68,9 @@ html(lang='en', ng-app="droneApp")
     .main-content
       header.masthead
         .container
-          h1 LocalDrones.net <small>Hire a local drone pilot today!</small>
+          a(href="/")
+            img.head-img(src="http://reveremagazine.com/wp-content/uploads/2014/02/phantom-2-vision-feature.jpg", width="150")
+            h1 LocalDrones.net <small>Hire a local drone pilot today!</small>
     block content
 
     block footer

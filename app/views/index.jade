@@ -8,21 +8,29 @@ block content
           li.active(data-target='#myCarousel', data-slide-to='0')
           li(data-target='#myCarousel', data-slide-to='1')
           li(data-target='#myCarousel', data-slide-to='2')
+          li(data-target='#myCarousel', data-slide-to='3')
+          li(data-target='#myCarousel', data-slide-to='4')
       .carousel-inner
           .item.active
-              img(src="http://www.dronestagr.am/wp-content/uploads/2014/03/Arch_Pano_02282014-960x540.jpg")
+            img(src="http://farm6.staticflickr.com/5500/9686164445_3e2b5b3d09_b.jpg")
+
+          .item
+            img(src="http://www.dronestagr.am/wp-content/uploads/2014/03/Arch_Pano_02282014-960x540.jpg")
       
           .item
-              img(src='http://www.dronestagr.am/wp-content/uploads/2013/08/View-West-960x540.jpg')
+            img(src='http://www.dronestagr.am/wp-content/uploads/2013/08/View-West-960x540.jpg')
             
           .item
-              img(src='http://www.dronestagr.am/wp-content/uploads/2013/10/Chateau-NeufPano-960x540.jpg')
+            img(src='http://www.dronestagr.am/wp-content/uploads/2013/10/Chateau-NeufPano-960x540.jpg')
+          
+          .item
+            img(src="http://farm3.staticflickr.com/2813/9689498178_4e8a936e01_b.jpg")
           
       .container
         .carousel-caption
             h1 Welcome!
             p
-                | LocalDrones connects anyone in need of a drone / small unmanned aircraft for an aerial photography project with skilled local done pilots and RC aerial photography companies who can meet your needs. See below for more details.
+                | LocalDrones connects anyone in need of a drone / small unmanned aircraft for an aerial photography project with skilled local drone pilots and RC aerial photography companies who can meet your needs. See below for more details.
             p
                 a.btn.btn-large.btn-primary(href='/login') Login now
       a.left.carousel-control(href='#myCarousel', data-slide='prev')
@@ -33,60 +41,96 @@ block content
   .container.marketing
     // Three columns of text below the carousel
     .row
-        .col-sm-4
-            img.img-circle(src='http://placehold.it/140x140')
-            h2 Heading
-            p
-                | Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.
-            p
-                a.btn.btn-default(href='#') View details »
+      .col-sm-4
+        img.img-circle(src='http://www.hoogtezicht.nl/images/uas_multirotor_drones/quadcopter/tbs_discovery_pro/tbs_discovery_pro_gimbal_quadcopter.jpg', height="150")
+        h2 A unique perspective
+        p
+          | The widespread availability of small drones allows photographers to capture amazing aerial photographs and videos for a fraction of the cost of hiring a manned helicopter, which has the potential to revolutionize many industries. 
+        p  
+          | Professionals ranging from relators to sports/event photographers are now using drones to capture a unique perspective from above. 
+        p
+            a.btn.btn-default(href='#revolutionize') Learn more »
         // /.col-lg-4
 
-        .col-sm-4
-            img.img-circle(src='http://placehold.it/140x140')
-            h2 Heading
-            p
-                | Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.
-            p
-                a.btn.btn-default(href='#') View details »
+      .col-sm-4
+        img.img-circle(src='http://farm8.staticflickr.com/7421/9664360853_bc8f22c7c4_b.jpg', height="150")
+        h2 Post your project
+        p
+          | Building and operating your own drone still requires a substantial amount of money, time, and knowledge.
+        p
+          | Rather than investing in your own drone, this site allows you to hire a local drone operator for your aerial photography projects. Freelance drone photographers and dedicated drone photography companies can then bid on your project.
+        p
+            a.btn.btn-default(href='#hire') Learn more »
         // /.col-lg-4
 
-        .col-sm-4
-            img.img-circle(src='http://placehold.it/140x140')
-            h2 Heading
-            p
-                | Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-            p
-                a.btn.btn-default(href='#') View details »
+      .col-sm-4
+        img.img-circle(src='http://www.fpvflying.com/product_images/uploaded_images/Multicopter.jpg', height="150")
+        h2 Bid on projects
+        p
+          | If you are a drone hobbyist looking to do some freelance aerial photography work or if you are a professional drone photographer, you can view a list of available drone photography projects in your area and bid on projects. 
+        p
+          | The project owner can then accept your bid and hire you for their aerial photography project. You can also list your business in our publically available directory of drone operators.
+        p
+            a.btn.btn-default(href='#operators') Learn more »
     //-Featurettes
+    
     hr.featurette-divider
-    .row.featurette
+    .row.featurette#revolutionize
         .col-md-7
             h2.featurette-heading
-                | First featurette heading.
-                span.text-muted It'll blow your mind.
+                | Drone photography could revolutionize your business
             p.lead
-                | Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+                | Camera equipped drones are revolutionizing the photography industry, providing close-up aerial photography that manned helicopters are incapable of, for a fraction of the cost.
+
+            p Drones can be used for any of the following purposes and more.
+            ul
+              li Real estate photography
+              li Sports / event photography
+              li Movie shoots
+              li Commercials and music videos
+              li News photography
+              li Infrastructure inspection
+              li Agriculture / crop monitoring
+              li Emergency response
+              li Search and rescue
         .col-md-5
-            img.featurette-image.img-responsive(src='http://placehold.it/300x300')
+            img.img-thumbnail.featurette-image.img-responsive(src='http://rack.3.mshcdn.com/media/ZgkyMDE0LzAyLzIzLzhhL3NvY2hpZHJvbmVzLmE0ZTRlLmpwZwpwCXRodW1iCTk1MHg1MzQjCmUJanBn/d754f40c/9e2/sochi-drones.jpg', width="350")
     hr.featurette-divider
-    .row.featurette
+    .row.featurette#hire
         .col-md-5
-            img.featurette-image.img-responsive(src='http://placehold.it/300x300')
+            img.img-thumbnail.featurette-image.img-responsive(src='http://thephotographysite.org/wp-content/uploads/2011/01/SkyRoverAndD90_FrontView.jpg',, width="350")
         .col-md-7
             h2.featurette-heading
-                | Oh yeah, it's that good.
-                span.text-muted See for yourself.
+                | Hire a drone
             p.lead
-                | Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+                | Since most professionals such as relators, sports photographers, news reporters, etc. lack the necessary equipment and skill to use a drone themselves, this site allows you to hire local freelance drone photographers and professional drone photography companies on a per-project basis.
+            p
+                | How the process works:
+            ol
+              li Login to the site using your Facebook or Google account.
+              li Fill out your profile information. 
+              li Post an aerial photography project to our database.
+              li Drone operators will then bid on your project, providing a cost estimate and details about the equipment and experience they can provide. 
+              li You can select a winning bid, at which point you will be put in direct content with the drone operator to arrange the photo shoot.
+             p
+                a.btn.btn-default(href='/new-project') Post a project now »
     hr.featurette-divider
-    .row.featurette
+    .row.featurette#operators
         .col-md-7
             h2.featurette-heading
-                | And lastly, this one.
-                span.text-muted Checkmate.
+                | Drone operators
             p.lead
-                | Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+                | If you are a drone hobbyist or professional drone photographer, you can bid on drone photography projects in your area and get paid for photoshoots. This is a great way to connect with potential customers and jump-start your RC aerial photography business.
+            p
+                | How the process works:
+            ol
+              li Login to the site using your Facebook or Google account.
+              li Create an optional public drone operator profile with information about your business and equipment.
+              li Go to the Drone Projects page to view a list of available drone photography projects in your area.
+              li Click on a project you are interested in and submit a bid on the project, including a price estimate and a list of equipment you can provide.
+              li If you are selected as the winning bid, the project owner will contact you to arrange details of the photo shoot.
+             p
+                a.btn.btn-default(href='/projects') View available projects »
         .col-md-5
-            img.featurette-image.img-responsive(src='http://placehold.it/300x300')
+            img.img-thumbnail.featurette-image.img-responsive(src='http://farm8.staticflickr.com/7309/11669241005_b85034ded2_b.jpg', width="350")
     hr.featurette-divider

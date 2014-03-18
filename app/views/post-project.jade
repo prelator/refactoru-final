@@ -36,8 +36,8 @@ block content
             span.input-group-addon
               i.glyphicon.glyphicon-calendar      
       .form-group
-        label.control-label Project location (enter address, GPS coordinates, or a zip code if you do not want the exact address to be public):
-        input.form-control(type="text", placeholder="Enter project location", name="location", required)
+        label.control-label Project location (enter address, city name, or a zip code):
+        input.form-control#location-field(type="text", placeholder="Enter project location", name="location", required)
       .form-group
         label.control-label Type of aerial photography project:
         select.form-control(name="projectType")
