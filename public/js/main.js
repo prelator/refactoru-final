@@ -1,6 +1,6 @@
 //========= Globals ==================
 var geocoder;
-
+var validLocation = true;
 //Time validation function
 var validateTime = function (str) {
   var timeMatch = /(\d|\d\d):\d\d\ (AM|PM)/i;
@@ -43,14 +43,20 @@ $(document).ready(function() {
       event.preventDefault();
       alert('All times must match format: "h:mm AM/PM" or "hh:mm AM/PM"');
     }
+    if (validLocation === false) {
+      event.preventDefault();
+      alert("You must enter a valid location before submitting the form.");
+    }
   });
 
   $('#location-field').change(function() {
     geocoder = new google.maps.Geocoder();
     geocoder.geocode( { 'address': $(this).val()}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
+        validLocation = true;
         alert("Location found: " + results[0].formatted_address + ". If this is not correct, enter a more specific location.");
       } else {
+        validLocation = false;
         alert("No matching location found. Please enter a more specific location.");
       }
     });

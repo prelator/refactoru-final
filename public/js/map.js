@@ -51,7 +51,7 @@ function createMarker(latlon, title, iwContent, markerid){
 function renderMap(position){  
   var cntr = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
   var mapOptions = {
-    center: cntr || new google.maps.LatLng(-34.397, 150.644),
+    center: cntr,
     zoom: 8
   };
   map = new google.maps.Map(document.getElementById("map-canvas"),
@@ -67,7 +67,7 @@ function renderMap(position){
 
 function initializeMap() {
   var mapOptions = {
-    center: new google.maps.LatLng(-34.397, 150.644),
+    center: new google.maps.LatLng(39.500, -105.000),
     zoom: 8
   };
   map = new google.maps.Map(document.getElementById("map-canvas"),
