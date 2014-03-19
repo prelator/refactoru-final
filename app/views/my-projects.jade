@@ -3,7 +3,10 @@ extends layout
 block content
   .container
     h1= title
-    
+  .container
+    button.btn.btn-sm.btn-default#collapse-all(type="button") Collapse All
+    button.btn.btn-sm.btn-default#expand-all(type="button") Expand All
+  .container    
     .col-sm-6
       h3 Posted projects
       p You have posted the following drone photography projects:
@@ -39,16 +42,38 @@ block content
                         li Traditional RC helicopter
                   li <strong>Cameras available:</strong> <small>#{bid.cameras}</small>
                   li <strong>Editing services available:</strong> <small>#{bid.editing}</small>
+                  li <strong>Comment:</strong> <small>#{bid.comment}</small>
     .col-sm-6
       h3 Bid projects
       p You have bid on the following drone photography projects:
-      each project in bidProjects
+      each item in bidProjects
         .panel.panel-warning
           .panel-heading
-            h3.panel-title <a href="/projects/#{project._id}">#{project.title}</a>
+            h3.panel-title <a href="/projects/#{item.project._id}">#{item.project.title}</a>
           .panel-body
-            h5 Project posted: <small>#{project.timeStamp}</small>
-            h5 Project date: <small>#{project.startDate}</small>
-            h5 Project times: <small>#{project.startTime} to #{project.endTime}</small>
-            h5 Project location: <small>#{project.location}</small>
-            h5 Description: <small>#{project.description}</small>
+            h5 Project posted: <small>#{item.project.timeStamp}</small>
+            h5 Project date: <small>#{item.project.startDate}</small>
+            h5 Project times: <small>#{item.project.startTime} to #{item.project.endTime}</small>
+            h5 Project location: <small>#{item.project.location}</small>
+            h5 Description: <small>#{item.project.description}</small>
+            h5 Your bid:
+            ul
+              li <strong>Submitted:</strong> <small>#{item.bid.timestamp}</small>
+              li <strong>Company name:</strong> <small>#{item.bid.companyName}</small>
+              li <strong>Contact name:</strong> <small>#{item.bid.contactName}</small>
+              li <strong>Contact phone:</strong> <small>#{item.bid.phone}</small>
+              li <strong>Contact email:</strong> <small>#{item.bid.email}</small>
+              li <strong>Hourly rate:</strong> <small>$#{item.bid.rate} /hr</small>
+              li <strong>Total cost estimate:</strong> <small>$#{item.bid.estimate}</small>
+              li <strong>Aircraft available:</strong>
+                ul
+                  if item.bid.fixedWing === true
+                    li Fixed-wing airplane
+                  if item.bid.multicopter === true
+                    li Multicopter
+                  if item.bid.helicopter === true
+                    li Traditional RC helicopter
+              li <strong>Cameras available:</strong> <small>#{item.bid.cameras}</small>
+              li <strong>Editing services available:</strong> <small>#{item.bid.editing}</small>
+              li <strong>Comment:</strong> <small>#{item.bid.comment}</small>
+

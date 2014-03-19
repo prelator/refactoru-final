@@ -84,8 +84,24 @@ $(document).ready(function() {
     }
   });
 
+  $(document).on('click', '.panel-heading', function(event) {
+    $(this).closest('.panel').find('.panel-body').slideToggle("fast");
+  });
+
+  $('.panel-heading a').click(function(event) {
+    event.stopPropagation();
+  });
+
+  $('#collapse-all').click(function(event) {
+    $(this).closest('body').find('.panel-body').slideUp("fast");
+  });
+
+  $('#expand-all').click(function(event) {
+    $(this).closest('body').find('.panel-body').slideDown("fast");
+  });
 
 
 
 
+//End document ready  
 });

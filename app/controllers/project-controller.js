@@ -81,7 +81,10 @@ module.exports = {
         }
         for (var t = 0; t < projects[i].bids.length; t++) {
           if (projects[i].bids[t].user === userInfo.userid) {
-            bidProjects.push(projects[i]);
+            bidProjects.push({
+              project: projects[i],
+              bid: projects[i].bids[t]
+            });
           }
         } 
       }
@@ -173,7 +176,8 @@ module.exports = {
       multicopter: req.body.multicopter === "on" ? true : false,
       helicopter: req.body.helicopter === "on" ? true : false,
       cameras: req.body.cameras,
-      editing: req.body.editing
+      editing: req.body.editing,
+      comment: req.body.comment
     };
     ProjectModel.findOne({_id: projectID}, function (err, project) {
       if (err) {console.log(err);}

@@ -103,6 +103,9 @@ block content
               select.form-control(name="editing")
                 option Yes
                 option No
+            .form-group
+              label.control-label Comment:
+              textarea.form-control(rows="5", placeholder="Enter message to project owner", name="comment")
             button.btn.btn-info(type="submit") Submit
             button.btn.btn-danger(type="reset") Reset
 
