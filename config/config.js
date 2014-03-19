@@ -26,7 +26,7 @@ var config = {
     app: {
       name: 'localdrones'
     },
-    port: 3000,
+    port: process.env.PORT || 3000,
     db: process.env.MONGOHQ_URL
   }
 };
