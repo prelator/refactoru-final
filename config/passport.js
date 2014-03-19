@@ -16,7 +16,7 @@ passport.deserializeUser(function (userid, done) {
 var facebookStrategy = new FacebookStrategy({
     clientID: '753637631326780',
     clientSecret: '9063c4b3d8359fa6adfef49cbbbc48aa',
-    callbackURL: 'http://localdrones.herokuapp.com/login/facebook/return'
+    callbackURL: 'http://localdrones.net/login/facebook/return'
   }, 
   function (accessToken, refreshToken, profile, done) {
     UserModel.findOne({userid: profile.id}, function (err, user) {
@@ -41,7 +41,7 @@ var facebookStrategy = new FacebookStrategy({
 var googleStrategy = new GoogleStrategy({
     clientID: "274717101968-tl18dqet2ekfg74bccbah2pf6a9bos70.apps.googleusercontent.com",
     clientSecret: "5CqlqpM5-12tXvsDKPRy-LZn",
-    callbackURL: "http://localdrones.herokuapp.com/login/google/return"
+    callbackURL: "http://localdrones.net/login/google/return"
   },
   function(accessToken, refreshToken, profile, done) {
     UserModel.findOne({userid: profile.id }, function (err, user) {
