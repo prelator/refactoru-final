@@ -27,7 +27,7 @@ var config = {
       name: 'localdrones'
     },
     port: 3000,
-    db: 'mongodb://localhost/localdrones-production'
+    db: 'process.env.MONGOHQ_URL'
   }
 };
 
