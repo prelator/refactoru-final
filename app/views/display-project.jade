@@ -1,0 +1,108 @@
+extends layout
+
+block extra-scripts
+  script(type="text/javascript")
+    var myProject = !{JSON.stringify(project)}
+  script(type="text/javascript", src="/js/project-map.js")
+block content
+  .container
+    h2 View Project: #{project.title}
+    .map-canvas#map-canvas 
+    
+    h3 Project details:
+    .white
+      h3 #{project.title}
+      h4 Posted: <small>#{project.timeStamp}</small>
+      h4 Project Owner: <small>#{project.displayName}</small>
+      if project.multidate === true
+        h4 Start Date: <small>#{project.startDate}</small>
+        h4 End Date: <small>#{project.endDate}</small>
+      else
+        h4 Date: <small>#{project.startDate}</small>
+      h4 Times: <small>#{project.startTime} - #{project.endTime}</small>
+      h4 Location: #{project.location}
+      h4 Type of project: <small>#{project.projectType}</small>
+      h4 Type of photography need: <small>#{project.photographyType}</small>
+      h4 Editing services required: <small>#{project.editing}</small>
+      h4 Project description:
+      p #{project.description}
+
+    if user === "Not logged in"
+      h3 Bid on this project:
+      .container.white      
+        p You must login to submit a bid.
+    else
+      if sameUser === true
+        h4 Bids on this project:
+        .list-group
+          each bid in project.bids
+            .list-group-item.col-sm-6
+              h5.list-group-item-heading Submitted: #{bid.timestamp}
+              ul
+                li <strong>Company name:</strong> <small>#{bid.companyName}</small>
+                li <strong>Contact name:</strong> <small>#{bid.contactName}</small>
+                li <strong>Contact phone:</strong> <small>#{bid.phone}</small>
+                li <strong>Contact email:</strong> <small>#{bid.email}</small>
+                li <strong>Hourly rate:</strong> <small>$#{bid.rate} /hr</small>
+                li <strong>Total cost estimate:</strong> <small>$#{bid.estimate}</small>
+                li <strong>Aircraft available:</strong>
+                  ul
+                    if bid.fixedWing === true
+                      li Fixed-wing airplane
+                    if bid.multicopter === true
+                      li Multicopter
+                    if bid.helicopter === true
+                      li Traditional RC helicopter
+                li <strong>Cameras available:</strong> <small>#{bid.cameras}</small>
+                li <strong>Editing services available:</strong> <small>#{bid.editing}</small>
+
+      else
+        h3 Bid on this project:
+        .container.white
+          h4 Submit bid
+          form.col-sm-6#bid-form(role="form", action="/post/new-bid/"+project._id, method="post")
+            .form-group
+              label.control-label Company name (enter "N/A" if none):
+              input.form-control(type="text", placeholder="Enter company name", name="company", required)
+            .form-group
+              label.control-label Contact name:
+              input.form-control(type="text", placeholder="Enter contact name", name="contact", required)
+            .form-group
+              label.control-label Contact phone number:
+              input.form-control(type="text", placeholder="Enter phone number", name="phone", required)
+            .form-group
+              label.control-label Contact email:
+              input.form-control(type="email", placeholder="Enter email", name="email", required)
+            .form-group
+              label.control-label Hourly rate:
+              .input-group           
+                span.input-group-addon $            
+                input.form-control(type="text", placeholder="50.00", name="rate", required)
+                span.input-group-addon / hr
+            .form-group
+              label.control-label Total cost estimate (not binding):
+              .input-group
+                span.input-group-addon $
+                input.form-control(type="text", placeholder="500.00", name="estimate", required)
+            .form-group
+              label.control-label Types of aircraft available:
+              .checkbox
+                label Fixed-wing plane
+                  input(type="checkbox", name="fixedWing") 
+              .checkbox
+                label Multicopter
+                  input(type="checkbox", name="multicopter") 
+              .checkbox
+                label Traditional RC helicopter
+                  input(type="checkbox", name="helicopter")
+            .form-group
+              label.control-label Cameras available (separate with comas):
+              input.form-control(type="text", placeholder="GoPro 3, Red Epic, etc.", name="cameras", required)
+            .form-group
+              label.control-label Do you provide editing services?
+              select.form-control(name="editing")
+                option Yes
+                option No
+            button.btn.btn-info(type="submit") Submit
+            button.btn.btn-danger(type="reset") Reset
+

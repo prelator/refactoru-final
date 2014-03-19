@@ -53,4 +53,15 @@ module.exports = function(app){
 
   //Delete project
   app.delete('/delete/:ID', authController.ensureAuthAJAX, projectController.matchUser, projectController.deleteProject);
+
+  //View individual project
+  app.get('/projects/:ID', projectController.displayProject);
+
+  //Post new bid
+  app.post('/post/new-bid/:ID', projectController.createBid);
+
+
+
+
+
 };

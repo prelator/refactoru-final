@@ -58,8 +58,8 @@ block content
       .form-group
         label.control-label Photo/video editing services required?
         select.form-control(name="editing")
-          option Yes
-          option No
+          option(value="true") Yes
+          option(value="false") No
       .form-group
         label.control-label Project description
         textarea.form-control(rows="5", placeholder="Enter project description", name="description", required)

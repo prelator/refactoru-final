@@ -10,7 +10,7 @@ block content
       each project in userProjects
         .panel.panel-info(id="#{project._id}")
           .panel-heading
-            h3.panel-title #{project.title}
+            h3.panel-title <a href="/projects/#{project._id}">#{project.title}</a>
           .panel-body
             button.close.btn-delete(type="button", aria-hidden="true") &times;
             h5 Project posted: <small>#{project.timeStamp}</small>
@@ -18,6 +18,37 @@ block content
             h5 Project times: <small>#{project.startTime} to #{project.endTime}</small>
             h5 Project location: <small>#{project.location}</small>
             h5 Description: <small>#{project.description}</small>
+            h5 Bids received:
+            ol
+              each bid in project.bids
+                li <strong>Submitted:</strong> #{bid.timestamp}
+                ul
+                  li <strong>Company name:</strong> <small>#{bid.companyName}</small>
+                  li <strong>Contact name:</strong> <small>#{bid.contactName}</small>
+                  li <strong>Contact phone:</strong> <small>#{bid.phone}</small>
+                  li <strong>Contact email:</strong> <small>#{bid.email}</small>
+                  li <strong>Hourly rate:</strong> <small>$#{bid.rate} /hr</small>
+                  li <strong>Total cost estimate:</strong> <small>$#{bid.estimate}</small>
+                  li <strong>Aircraft available:</strong>
+                    ul
+                      if bid.fixedWing === true
+                        li Fixed-wing airplane
+                      if bid.multicopter === true
+                        li Multicopter
+                      if bid.helicopter === true
+                        li Traditional RC helicopter
+                  li <strong>Cameras available:</strong> <small>#{bid.cameras}</small>
+                  li <strong>Editing services available:</strong> <small>#{bid.editing}</small>
     .col-sm-6
       h3 Bid projects
       p You have bid on the following drone photography projects:
+      each project in bidProjects
+        .panel.panel-warning
+          .panel-heading
+            h3.panel-title <a href="/projects/#{project._id}">#{project.title}</a>
+          .panel-body
+            h5 Project posted: <small>#{project.timeStamp}</small>
+            h5 Project date: <small>#{project.startDate}</small>
+            h5 Project times: <small>#{project.startTime} to #{project.endTime}</small>
+            h5 Project location: <small>#{project.location}</small>
+            h5 Description: <small>#{project.description}</small>

@@ -17,6 +17,7 @@ var projectSchema = new mongoose.Schema({
     photographyType: String,
     editing: String,
     description: String,
+    bids: Array
 });
 
 var ProjectModel = module.exports = mongoose.model('project', projectSchema);

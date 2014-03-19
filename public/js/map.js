@@ -52,7 +52,7 @@ function renderMap(position){
   var cntr = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
   var mapOptions = {
     center: cntr,
-    zoom: 8
+    zoom: 9
   };
   map = new google.maps.Map(document.getElementById("map-canvas"),
       mapOptions);

@@ -65,11 +65,6 @@ $(document).ready(function() {
 
 //======== My projects page =====================
   
-  //Show/hide project panel content
-  $(document).on('click', '.panel-heading', function(event) {
-    $(this).closest('.panel').find('.panel-body').slideToggle("fast");
-  });
-
   //Delete project
   $(document).on('click', '.btn-delete', function(event) {
     var confirmation = confirm("Are you sure you want to delete this project?");
