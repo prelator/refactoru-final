@@ -21,4 +21,6 @@ var app = express();
 require('./config/express')(app, config);
 require('./config/routes')(app);
 
-app.listen(config.port);
+require('http').createServer(app).listen(config.port, function() {
+  console.log("Express server listening.");
+});
