@@ -60,7 +60,13 @@ module.exports = function(app){
   //Post new bid
   app.post('/post/new-bid/:ID', projectController.createBid);
 
+// ========= Static Pages ==============
+var staticController = require('../app/controllers/static-controller.js');
+  //Legal Info page
+  app.get('/legal', staticController.legal);
 
+  //About Page
+  app.get('/about', staticController.about);
 
 
 
